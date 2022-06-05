@@ -1,0 +1,29 @@
+.product-description{
+    margin-top: 50px;
+}
+
+.name-product{
+    padding: 20px;
+}
+
+.button-add-card{
+    width: 100%;
+    margin-top: 50px;
+    border: none;
+}
+
+.arrows{
+
+    border-radius: 20px;
+}
+
+.arrows span{
+    width: 30px;
+    height: 30px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightcoral;
+    border-radius: 20px;
+}
