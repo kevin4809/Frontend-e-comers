@@ -27,3 +27,8 @@
     background-color: lightcoral;
     border-radius: 20px;
 }
+
+.select-img-carousel{
+    display: flex;
+    margin-top: 20px;
+}

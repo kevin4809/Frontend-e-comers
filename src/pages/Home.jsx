@@ -63,8 +63,6 @@ const Home = () => {
                 <li className="list-group-item" key={category.id} onClick={() => selectCategory(category.id)} >{category.name}</li>
               ))
             }
-
-
           </ul>
         </div>
         <div className="col-md-10">

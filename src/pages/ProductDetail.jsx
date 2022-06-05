@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { AiOutlineShoppingCart, AiOutlineDoubleRight, AiOutlineDoubleLeft } from "react-icons/ai";
 const ProductDetail = () => {
@@ -8,34 +8,32 @@ const ProductDetail = () => {
 
 
   const [product, setProduct] = useState({});
+  
 
   const { id } = useParams();
 
 
-  const products = useSelector(state => state.produtcs)
-  console.log(products)
+  // const products = useSelector(state => state.produtcs)
+
   useEffect(() => {
 
     axios.get(`https://ecommerce-api-react.herokuapp.com/api/v1/products/${id}`)
       .then(res => setProduct(res.data?.data.product))
 
 
+
   }, [id])
 
-  console.log(products)
+
 
 
   return (
     <div className='container-md'>
-      <div className='product-description'>
+      <div className='product-description'>productselect
         <div className="row">
           <div className="col-md-4">
             <div id="carouselImgeProducts" class="carousel slide" data-bs-ride="carousel">
-              <div className="carousel-indicators">
-                <button type="button" data-bs-target="#carouselImgeProducts" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselImgeProducts" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselImgeProducts" data-bs-slide-to="2" aria-label="Slide 3"></button>
-              </div>
+
               <div className="carousel-inner">
                 <div className="carousel-item active">
                   <img className='img-fluid imgs' src={product.productImgs?.[0]} alt="" />
@@ -47,6 +45,7 @@ const ProductDetail = () => {
                   <img className='img-fluid imgs' src={product.productImgs?.[2]} alt="" />
                 </div>
               </div>
+
               <button className="carousel-control-prev" type="button" data-bs-target="#carouselImgeProducts" data-bs-slide="prev">
                 <div className="arrows">
                   <span><AiOutlineDoubleLeft /></span>
@@ -61,6 +60,11 @@ const ProductDetail = () => {
               </button>
             </div>
 
+            <div className="select-img-carousel">
+              <button type="button" data-bs-target="#carouselImgeProducts" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1">   <img className='img-fluid img-indicator' src={product.productImgs?.[0]} alt="" /></button>
+              <button type="button" data-bs-target="#carouselImgeProducts" data-bs-slide-to="1" aria-label="Slide 2">   <img className='img-fluid  img-indicator' src={product.productImgs?.[1]} alt="" /></button>
+              <button type="button" data-bs-target="#carouselImgeProducts" data-bs-slide-to="2" aria-label="Slide 3">   <img className='img-fluid  img-indicator' src={product.productImgs?.[2]} alt="" /></button>
+            </div>
 
           </div>
 
