@@ -1,8 +1,8 @@
 import { Container } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { HashRouter, Route, Routes } from "react-router-dom";
-import { LoadingScreen, Navbar } from "./components";
-import { Home, Login, ProductDetail, Favorite } from './pages';
+import { LoadingScreen } from "./components";
+import { Home, Login, ProductDetail } from './pages';
 import './styles/styleHome.css'
 import './styles/styleProductDetail.css'
 
@@ -11,7 +11,7 @@ function App() {
   const isLoading = useSelector(state => state.isLoading);
   return (
     <HashRouter>
-      <Navbar />
+
       <Container>
         {isLoading && <LoadingScreen />}
         <Routes>
