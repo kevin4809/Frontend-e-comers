@@ -66,10 +66,10 @@ const Home = () => {
           </ul>
         </div>
         <div className="col-md-10">
-          <div className="row">
+
             {
               products?.map(product => (
-                <div className='card col-5 products-cards' key={product.id} onClick={() => navigate(`/products/${product.id}`)}>
+                <div className='card products-cards' key={product.id} onClick={() => navigate(`/products/${product.id}`)}>
                   <img className='img-fluid text-center' src={product.productImgs[2]} alt="" />
                   <h3 className='text-center'>{product.title}</h3>
                   <p>{product.description}</p>
@@ -77,7 +77,6 @@ const Home = () => {
               ))
             }
 
-          </div>
 
         </div>
       </div>
