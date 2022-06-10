@@ -6,7 +6,6 @@ import OffCanvas from './OffCanvas';
 
 const NavBar = () => {
 
-
     const dispatch = useDispatch();
 
     useEffect(() => {
