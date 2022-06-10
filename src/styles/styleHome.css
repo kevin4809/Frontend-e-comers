@@ -1,9 +1,23 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-.products-cards{
-    margin: 40px;
+.products-cards {
+    padding: 20px;
+    margin: 10px;
+    max-height: 400px;
+    min-height: 430px;
+}
+
+.img-product-card {
+    max-height: 200px;
+    min-height: 200px;
+    padding-bottom: 10px;
+}
+
+.title-product{
+    border-top: 1px grey solid;
+    padding-top: 30px;
 }

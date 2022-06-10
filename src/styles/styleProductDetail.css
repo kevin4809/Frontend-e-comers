@@ -42,7 +42,7 @@
 }
 
 .suggestions {
-    margin-top: 200px;
+    margin-top: 100px;
 }
 
 .container-card-suggestions {
@@ -81,4 +81,34 @@
 
 .image-carousel img {
     max-height: 300px;
+}
+
+.select-img-carousel {
+    padding: 20px;
+
+}
+
+.select-img-carousel button {
+    margin: 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    border: none;
+}
+
+.select-img-carousel button img {
+    max-height: 400px;
+
+}
+
+.count-products button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border: 1px lightgray solid;
+    background-color: white;
+
+}
+
+.count-products h3 {
+    border: 1px lightgray solid;
+    height: 30px; 
 }
