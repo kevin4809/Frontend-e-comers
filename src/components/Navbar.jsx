@@ -4,7 +4,7 @@ import { getCart } from '../store/slices/car.slice';
 import OffCanvas from './OffCanvas';
 
 
-const Navbar = () => {
+const NavBar = () => {
 
 
     const dispatch = useDispatch();
@@ -47,4 +47,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+export default NavBar
