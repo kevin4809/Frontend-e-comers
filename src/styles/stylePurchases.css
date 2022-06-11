@@ -1,0 +1,15 @@
+.content-purchases{
+    padding: 40px;
+    margin: 30px;
+}
+
+.quantity-purchases{
+    border: 1px lightgray solid;
+    padding: 10px;
+    
+}
+
+.date-purchases{
+    border-bottom: 3px lightgray solid;
+    padding: 30px;
+}

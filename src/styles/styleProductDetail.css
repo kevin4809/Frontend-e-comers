@@ -12,6 +12,12 @@
     border: none;
 }
 
+.button-add-card:hover {
+    animation: myAnim 2s ease 0s 1 normal forwards;
+}
+
+
+
 .arrows {
 
     border-radius: 20px;
@@ -28,6 +34,10 @@
     border-radius: 20px;
 }
 
+.arrows span:hover {
+    animation: myAnim 2s ease 0s 1 normal forwards;
+}
+
 .select-img-carousel {
     display: flex;
     margin-top: 20px;
@@ -38,6 +48,11 @@
     max-height: 200px;
     min-height: 200px;
     padding-bottom: 10px;
+
+}
+
+.img-suggestions:hover {
+    cursor: pointer;
 
 }
 
@@ -67,6 +82,10 @@
     background-color: lightcoral;
     border-radius: 50%;
     border: none;
+}
+
+.button-car:hover {
+    animation: myAnim 2s ease 0s 1 normal forwards;
 }
 
 .title-product-suggestion {
@@ -110,5 +129,37 @@
 
 .count-products h3 {
     border: 1px lightgray solid;
-    height: 30px; 
+    height: 30px;
+}
+
+.img-indicator:hover {
+    animation: myAnim 2s ease 0s 1 normal forwards;
+}
+
+@keyframes myAnim {
+    0% {
+        animation-timing-function: ease-out;
+        transform: scale(1);
+        transform-origin: center center;
+    }
+
+    10% {
+        animation-timing-function: ease-in;
+        transform: scale(0.91);
+    }
+
+    17% {
+        animation-timing-function: ease-out;
+        transform: scale(0.98);
+    }
+
+    33% {
+        animation-timing-function: ease-in;
+        transform: scale(0.87);
+    }
+
+    45% {
+        animation-timing-function: ease-out;
+        transform: scale(1);
+    }
 }

@@ -14,3 +14,11 @@
     margin-bottom: 20px;
     border-bottom: 1px lightgrey solid;
 }
+
+.content-cart:hover{
+    cursor: pointer;
+}
+
+.navbar-aling{
+    margin-left: auto;
+}

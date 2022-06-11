@@ -2,7 +2,7 @@ import axios from 'axios'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
-
+import { AiOutlineFileDone, AiOutlineUnlock } from "react-icons/ai";
 const Login = () => {
 
 
@@ -27,7 +27,17 @@ const Login = () => {
   }
 
   return (
-    <div>
+    <div className='position-absolute top-50 start-50 translate-middle'>
+
+      <h3 className='text-center'>Welcome! Enter your email and password to continue</h3>
+
+      <div className="text-data text-center">
+        <h4 >text data</h4>
+        <h4><AiOutlineFileDone /> mason@gmail.com </h4>
+        <h4 ><AiOutlineUnlock />mason1234 </h4>
+      </div>
+
+
 
       <form onSubmit={handleSubmit(submit)}>
         <div className="mb-3">
@@ -40,7 +50,7 @@ const Login = () => {
           <input type="password" {...register("password")} className="form-control" id="exampleInputPassword1" />
         </div>
 
-        <button type="submit" className="btn btn-primary">Submit</button>
+        <button type="submit" className="btn btn-primary ">Submit</button>
       </form>
     </div>
   )

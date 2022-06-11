@@ -17,7 +17,16 @@
     padding-bottom: 10px;
 }
 
+.img-product-card:hover{
+    cursor: pointer;
+}
 .title-product{
     border-top: 1px grey solid;
     padding-top: 30px;
+}
+
+.text-data{
+    margin: 20px;
+    background-color: lightgray;
+    padding: 20px;
 }

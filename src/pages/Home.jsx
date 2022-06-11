@@ -38,7 +38,7 @@ const Home = () => {
 
   return (
     <div className='container'>
-      <h1>Home</h1>
+      <h1>e-comers</h1>
       <div className="input-group mb-3">
         <input type="text" className="form-control"
           placeholder="Recipient's username"
@@ -60,7 +60,7 @@ const Home = () => {
           <ul className="list-group">
             {
               categories.map(category => (
-                <li className="list-group-item" key={category.id} onClick={() => selectCategory(category.id)} >{category.name}</li>
+                <button className="list-group-item" key={category.id} onClick={() => selectCategory(category.id)} >{category.name}</button>
               ))
             }
           </ul>
@@ -70,7 +70,7 @@ const Home = () => {
           <div className="row">
             {
               products?.map(product => (
-                <div  key={product.id} className="col-md-6">
+                <div key={product.id} className="col-md-6">
                   <div className=' card products-cards' onClick={() => navigate(`/products/${product.id}`)}>
                     <img className='img-fluid mx-auto d-block img-product-card' src={product.productImgs[2]} alt="" />
                     <h4 className='title-product'>{product.title}</h4>
@@ -81,7 +81,6 @@ const Home = () => {
                       </div>
                       <div className="col-6">
                         <button className='button-car float-end' type='button'><AiOutlineShoppingCart /></button>
-
                       </div>
                     </div>
 
