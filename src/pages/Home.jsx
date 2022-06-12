@@ -15,6 +15,8 @@ const Home = () => {
   const [search, setSearch] = useState("");
   const [categories, setCategories] = useState([]);
 
+  const token = localStorage.getItem('token')
+
   const products = useSelector(state => state.produtcs.data?.products)
 
   useEffect(() => {
@@ -35,18 +37,18 @@ const Home = () => {
 
   const addProduct = (id) => {
 
-    const product = {
-      id: id,
-      quantity: 1
+    if(token){
 
+      const product = {
+        id: id,
+        quantity: 1
+      }
+      alert("The product was added to the cart")
+      dispatch(addToCart(product))
+      dispatch(getCart())
+    }else{
+      alert('You need login to buy')
     }
-
-    alert("The product was added to the cart")
-
-    dispatch(addToCart(product))
-    dispatch(getCart())
-
-
   }
 
 

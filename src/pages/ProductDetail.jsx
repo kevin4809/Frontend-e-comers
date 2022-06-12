@@ -11,7 +11,7 @@ const ProductDetail = () => {
   const [product, setProduct] = useState({});
   const [quantity, setQuantity] = useState(1);
 
-
+  const token = localStorage.getItem('token')
 
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -31,17 +31,20 @@ const ProductDetail = () => {
   }, [dispatch, id])
 
   const addProduct = () => {
-    const product = {
-      id: id,
-      quantity: quantity
 
+    if(token){
+      const product = {
+        id: id,
+        quantity: quantity
+      }
+      alert("The product was added to the cart")
+      dispatch(addToCart(product))
+      dispatch(getCart())
+      setQuantity(1)
+    }else{
+      alert("You need login to buy")
     }
-
-    alert("The product was added to the cart")
-    dispatch(addToCart(product))
-    dispatch(getCart())
-    setQuantity(0)
-
+   
   }
 
 
