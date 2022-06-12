@@ -15,15 +15,16 @@ const Login = () => {
       .then(res => {
         localStorage.setItem("token", res.data.data.token)
         navigate("/")
-        console.log(res.data.data.token)
+        alert('User login!!')
       })
       .catch(error => {
         console.log(error.response.status)
         if (error.response.status === 404) {
-          alert('Contraseña incorrecta ')
+          alert('incorrect password ')
         }
       })
-    console.log(data)
+
+
   }
 
   return (
@@ -32,9 +33,9 @@ const Login = () => {
       <h3 className='text-center'>Welcome! Enter your email and password to continue</h3>
 
       <div className="text-data text-center">
-        <h4 >text data</h4>
-        <h4><AiOutlineFileDone /> mason@gmail.com </h4>
-        <h4 ><AiOutlineUnlock />mason1234 </h4>
+        <h4 >test data</h4>
+        <p className='data-info'><AiOutlineFileDone /> kevinedk@gmail.com </p>
+        <p className='data-info'><AiOutlineUnlock /> kevin1234 </p>
       </div>
 
 

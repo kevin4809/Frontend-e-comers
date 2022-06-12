@@ -4,12 +4,13 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { AiOutlineShoppingCart, AiOutlineDoubleRight, AiOutlineDoubleLeft, } from "react-icons/ai";
 import { useDispatch, useSelector } from 'react-redux';
 import { fiterCategory } from '../store/slices/products.slice';
-import { addToCart } from '../store/slices/car.slice';
+import { addToCart, getCart } from '../store/slices/car.slice';
 
 const ProductDetail = () => {
 
   const [product, setProduct] = useState({});
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
+
 
 
   const { id } = useParams();
@@ -36,7 +37,9 @@ const ProductDetail = () => {
 
     }
 
+    alert("The product was added to the cart")
     dispatch(addToCart(product))
+    dispatch(getCart())
     setQuantity(0)
 
   }
@@ -95,7 +98,7 @@ const ProductDetail = () => {
               <div className="col-6">
                 <h5 className='text-muted text-center'>Quantity</h5>
                 <div className=" d-flex justify-content-center count-products">
-                  <button onClick={() => quantity > 0 ? setQuantity(quantity - 1) : setQuantity(0)}>-</button>
+                  <button onClick={() => quantity > 1 ? setQuantity(quantity - 1) : setQuantity(1)}>-</button>
                   <h3>{quantity}</h3>
                   <button onClick={() => setQuantity(quantity + 1)}>+</button>
                 </div>
@@ -117,9 +120,9 @@ const ProductDetail = () => {
 
           {
             products.data?.products.map(product => (
-              <div key={product.id} className='col-md-4' onClick={() => navigate(`/products/${product.id}`)}>
+              <div key={product.id} className='col-md-4'>
                 <div className="card container-card-suggestions">
-                  <img className='img-fluid mx-auto d-block img-suggestions' src={product.productImgs[2]} alt="" />
+                  <img className='img-fluid mx-auto d-block img-suggestions' onClick={() => navigate(`/products/${product.id}`)} src={product.productImgs[2]} alt="" />
 
                   <h4 className='title-product-suggestion'>{product.title}</h4>
                   <h5>price</h5>
@@ -128,7 +131,10 @@ const ProductDetail = () => {
                       <h4 className='price'>{product.price}</h4>
                     </div>
                     <div className="col-6">
-                      <button className='button-car float-end' type='button'><AiOutlineShoppingCart /></button>
+                      <button onClick={() => {
+                        addProduct()
+                        setQuantity(1)
+                      }} className='button-car float-end' type='button'><AiOutlineShoppingCart /></button>
 
                     </div>
                   </div>

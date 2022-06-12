@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import getConfig from '../../helpers/getConfig';
 import { setIsLoading } from './isLoading.slice';
-
+import { getPurchases } from './purchases.slice'
 export const carSlice = createSlice({
     name: 'car',
     initialState: {},
@@ -28,5 +28,15 @@ export const addToCart = (product) => (dispatch) => {
     dispatch(setIsLoading(true));
     return axios.post("https://ecommerce-api-react.herokuapp.com/api/v1/cart", product, getConfig())
         .then(() => dispatch(getCart))
+        .finally(() => dispatch(setIsLoading(false)));
+}
+
+export const buy = () => (dispatch) => {
+    dispatch(setIsLoading(true));
+    return axios.post('https://ecommerce-api-react.herokuapp.com/api/v1/purchases', {}, getConfig())
+        .then(() => {
+            dispatch(getPurchases())
+            dispatch(setCart([]))
+        })
         .finally(() => dispatch(setIsLoading(false)));
 }

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { filterHeadline, fiterCategory, getProducts } from '../store/slices/products.slice'
+import { addToCart, getCart } from '../store/slices/car.slice';
 
 const Home = () => {
 
@@ -18,8 +19,6 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(getProducts())
-
-
     axios.get('https://ecommerce-api-react.herokuapp.com/api/v1/products/categories')
       .then(res => setCategories(res.data?.data.categories))
 
@@ -34,14 +33,30 @@ const Home = () => {
     dispatch(fiterCategory(id))
   }
 
+  const addProduct = (id) => {
+
+    const product = {
+      id: id,
+      quantity: 1
+
+    }
+
+    alert("The product was added to the cart")
+
+    dispatch(addToCart(product))
+    dispatch(getCart())
+
+
+  }
+
 
 
   return (
     <div className='container'>
-      <h1>e-comers</h1>
+      <h1 className='text-center'>Store</h1>
       <div className="input-group mb-3">
         <input type="text" className="form-control"
-          placeholder="Recipient's username"
+          placeholder="Search product"
           aria-label="Recipient's username"
           aria-describedby="button-addon2"
           onChange={e => setSearch(e.target.value)}
@@ -57,6 +72,7 @@ const Home = () => {
 
       <div className="row">
         <div className="col-md-2">
+          <h5 className='text-center'>Categories</h5>
           <ul className="list-group">
             {
               categories.map(category => (
@@ -71,8 +87,8 @@ const Home = () => {
             {
               products?.map(product => (
                 <div key={product.id} className="col-md-6">
-                  <div className=' card products-cards' onClick={() => navigate(`/products/${product.id}`)}>
-                    <img className='img-fluid mx-auto d-block img-product-card' src={product.productImgs[2]} alt="" />
+                  <div className=' card products-cards'>
+                    <img onClick={() => navigate(`/products/${product.id}`)} className='img-fluid mx-auto d-block img-product-card' src={product.productImgs[2]} alt="" />
                     <h4 className='title-product'>{product.title}</h4>
                     <h5>Price</h5>
                     <div className="row">
@@ -80,7 +96,7 @@ const Home = () => {
                         <h4 className='price'>{product.price}</h4>
                       </div>
                       <div className="col-6">
-                        <button className='button-car float-end' type='button'><AiOutlineShoppingCart /></button>
+                        <button onClick={() => addProduct(product.id)} className='button-car float-end' type='button'><AiOutlineShoppingCart /></button>
                       </div>
                     </div>
 

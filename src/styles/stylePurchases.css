@@ -6,8 +6,11 @@
 .quantity-purchases{
     border: 1px lightgray solid;
     padding: 10px;
+    text-align: center;
     
 }
+
+
 
 .date-purchases{
     border-bottom: 3px lightgray solid;
