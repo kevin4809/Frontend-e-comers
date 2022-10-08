@@ -34,8 +34,8 @@ const Login = () => {
 
       <div className="text-data text-center">
         <h4 >test data</h4>
-        <p className='data-info'><AiOutlineFileDone /> kevinedk@gmail.com </p>
-        <p className='data-info'><AiOutlineUnlock /> kevin1234 </p>
+        <p className='data-info'><AiOutlineFileDone /> datatest@gmail.com </p>
+        <p className='data-info'><AiOutlineUnlock /> data123 </p>
       </div>
 
 
